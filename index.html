@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Alta Rápida · TBA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #fff; line-height: 1.6; padding-bottom: 50px; }
+        header { background: #1a1a1a; padding: 25px 20px; text-align: center; border-bottom: 1px solid #333; position: sticky; top:0; z-index:100;}
+        header h1 { font-weight: 900; font-size: 24px; color: #4facfe; margin-bottom: 5px;}
+        header p { font-size: 14px; color: #888; }
+        
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .section-card { background: #151515; border: 1px solid #2a2a2a; border-radius: 12px; padding: 25px; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #2a2a2a; padding-bottom: 15px;}
+        .section-header i { color: #4facfe; }
+        .section-header h2 { font-size: 18px; font-weight: 800; }
+        
+        label { display: block; font-size: 13px; font-weight: 600; color: #aaa; margin-bottom: 6px; margin-top: 15px;}
+        input[type="text"], input[type="tel"], textarea { 
+            width: 100%; background: #000; border: 1px solid #333; color: #fff; padding: 12px 14px; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif;
+            transition: 0.2s;
+        }
+        input:focus, textarea:focus { border-color: #4facfe; outline: none; }
+        textarea { resize: vertical; min-height: 80px; }
+        
+        .checkbox-group { margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; background: #000; padding: 12px; border-radius: 8px; border: 1px solid #333; cursor: pointer; transition: 0.2s;}
+        .checkbox-item:hover { border-color: #555; }
+        .checkbox-item input { accent-color: #4facfe; width: 18px; height: 18px; cursor: pointer;}
+        .checkbox-item span { font-size: 14px; }
+        
+        @media(max-width: 480px) { .checkbox-group { grid-template-columns: 1fr; } }
+
+        .btn-submit { 
+            width: 100%; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: #fff; border: none; padding: 18px; border-radius: 10px; font-size: 18px; font-weight: 900; 
+            cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: transform 0.2s; box-shadow: 0 10px 20px rgba(37,211,102,0.3);
+        }
+        .btn-submit:hover { transform: translateY(-3px); }
+        
+        .disclaimer { font-size: 12px; color: #666; text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TBA · Alta Operativa</h1>
+        <p>Llena este formulario ultra rápido. Lo recibiremos por WhatsApp de inmediato.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECCIÓN 1 -->
+        <div class="section-card">
+            <div class="section-header">
+                <i data-lucide="contact"></i>
+                <h2>Fase 1: VCard Corporativa</h2>
+            </div>
+            
+            <label>WhatsApp de Contacto (Empresa)</label>
+            <input type="tel" id="vcard-wa" placeholder="Ej: 228 123 4567">
+            
+            <label>Horario de Atención Oficial</label>
+            <input type="text" id="vcard-time" placeholder="Ej: Lunes a Sábado de 8:00am a 6:00pm">
+            
+            <label>Dirección Física (Opcional)</label>
+            <input type="text" id="vcard-add" placeholder="Ej: Calle Principal 123, Veracruz">
+
+            <label style="margin-top:20px; color:#fff;">Servicios Principales que ofrecen</label>
+            <div class="checkbox-group" id="servicios-group">
+                <label class="checkbox-item"><input type="checkbox" value="Mantenimiento de Albercas"><span>Mantenimiento y limpieza</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Instalación de Filtros"><span>Instalación de Filtros</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Reparación de Bombas"><span>Reparación de Equipos</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Venta de Insumos"><span>Venta de Químicos</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Proyectos Arquitectónicos"><span>Asesoría a proyectos</span></label>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2 -->
+        <div class="section-card">
+            <div class="section-header">
+                <i data-lucide="smartphone"></i>
+                <h2>Fase 2: App y Command Center</h2>
+            </div>
+
+            <p style="font-size: 13px; color: #888; margin-bottom: 20px;">*Para base de datos masivas (300 albercas), no te molestes en escribir: sube tu archivo Excel directamente.*</p>
+
+            <label>1. Técnicos y sus Datos</label>
+            <p style="font-size: 12px; color: #666; margin-bottom: 6px;">Puedes escribir los nombres o subir el Excel si lo tienes.</p>
+            <input type="file" id="tech-file" accept=".xlsx, .xls, .csv, .pdf" style="margin-bottom: 10px; background: #222; border: 1px dashed #555; cursor: pointer; padding: 10px;">
+            <textarea id="tech-list" placeholder="O si son poquitos, escríbelos: Roberto Lopez, Juan Perez..."></textarea>
+            
+            <label>2. Estructura de las Rutas</label>
+            <p style="font-size: 12px; color: #666; margin-bottom: 6px;">Indica el nombre de tus rutas y qué zonas cubren aproximadamente.</p>
+            <textarea id="routes-list" placeholder="Ej: Ruta Norte 1 (Cubre Fracc. Las Animas, Monte Magno...)"></textarea>
+
+            <label>3. Directorio de Albercas (Direcciones y Filtros)</label>
+            <p style="font-size: 12px; color: #666; margin-bottom: 6px;">Sube tu archivo Excel principal con la lista de casas, rutas y filtros:</p>
+            <input type="file" id="pool-file" accept=".xlsx, .xls, .csv, .pdf" style="margin-bottom: 10px; background: #222; border: 1px dashed #555; cursor: pointer; padding: 10px;">
+            <textarea id="pools-list" placeholder="O pega aquí tu listado rápido si lo tienes copiado..."></textarea>
+
+            <label style="margin-top:25px; color:#fff;">4. Químicos Consumibles (App Técnica)</label>
+            <p style="font-size: 12px; color: #666; margin-bottom: 6px;">Selecciona lo que tus empleados aplican comúnmente en campo.</p>
+            <div class="checkbox-group" id="quimicos-group">
+                <label class="checkbox-item"><input type="checkbox" value="Cloro en Pastilla"><span>Cloro (Pastilla)</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Dicloro"><span>Dicloro (Granulado)</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Ácido Muriático"><span>Ácido Muriático</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Antialgas"><span>Antialgas</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Clarificante"><span>Clarificante</span></label>
+                <label class="checkbox-item"><input type="checkbox" value="Bicarbonato"><span>Bicarbonato / Ceniza</span></label>
+            </div>
+            
+            <label>Si faltó algún químico especial, agrégalo aquí:</label>
+            <input type="text" id="extras-quimicos" placeholder="Varios separados por coma...">
+        </div>
+
+        <!-- SECCIÓN 3 -->
+        <div class="section-card">
+            <div class="section-header">
+                <i data-lucide="plus-circle"></i>
+                <h2>Fase 3: Info Extra y Comentarios</h2>
+            </div>
+            <label>¿Hay algo que falte por mencionar o indicar?</label>
+            <p style="font-size: 12px; color: #666; margin-bottom: 6px;">Agrega indicaciones u otros enlaces aquí si los necesitas.</p>
+            <textarea id="extra-info" placeholder="..."></textarea>
+        </div>
+
+        <!-- BOTON DE ENVIO MÁGICO -->
+        <button class="btn-submit" id="btn-send-wa">
+            <i data-lucide="send"></i> Listo: Enviar Información
+        </button>
+        <p class="disclaimer">Al procesar tu envío, se abrirá WhatsApp. Si adjuntaste Exceles o Fotos en los recuadros de arriba, el sistema te pedirá que las sueltes directamente en nuestro chat oficial por cuestiones de seguridad de la Nube.</p>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        document.getElementById('btn-send-wa').addEventListener('click', () => {
+            // Recolectar FASE 1
+            const wa = document.getElementById('vcard-wa').value || 'No def.';
+            const time = document.getElementById('vcard-time').value || 'No def.';
+            const add = document.getElementById('vcard-add').value || 'No def.';
+            
+            let servCheckboxes = document.querySelectorAll('#servicios-group input:checked');
+            let servs = Array.from(servCheckboxes).map(c => "✅ " + c.value).join('\n') || '-';
+
+            // Recolectar FASE 2
+            let techs = document.getElementById('tech-list').value;
+            const techFile = document.getElementById('tech-file').files[0];
+            if (techFile) techs = `📁 [TE ENVIARÉ EL ARCHIVO: ${techFile.name} AQUÍ EN WA]`;
+            else if (!techs) techs = 'Pendiente de enviar.';
+
+            const routes = document.getElementById('routes-list').value || 'Pendiente de enviar.';
+            
+            let pools = document.getElementById('pools-list').value;
+            const poolFile = document.getElementById('pool-file').files[0];
+            if (poolFile) pools = `📁 [TE ENVIARÉ EL ARCHIVO: ${poolFile.name} AQUÍ EN WA]`;
+            else if (!pools) pools = 'Pendiente de enviar.';
+            
+            let quimCheckboxes = document.querySelectorAll('#quimicos-group input:checked');
+            let quims = Array.from(quimCheckboxes).map(c => "🧪 " + c.value).join('\n') || '-';
+            const extraQuim = document.getElementById('extras-quimicos').value;
+            if(extraQuim) quims += `\n🧪 Extras: ${extraQuim}`;
+
+            // Recolectar FASE 3
+            const extraInfo = document.getElementById('extra-info').value || 'Ninguna por el momento.';
+
+            // Armar mensaje Maestro para WA
+            let docStr = `🚀 *ONBOARDING TBA (COMPLETO)* 🚀\n\n`;
+            docStr += `*--- 1. VCARD INSTITUCIONAL ---*\n`;
+            docStr += `📱 *WhatsApp:* ${wa}\n`;
+            docStr += `⏱ *Horario:* ${time}\n`;
+            docStr += `🏢 *Agencia:* ${add}\n`;
+            docStr += `🛠 *Servicios Marcados:*\n${servs}\n\n`;
+
+            docStr += `*--- 2. COMMAND CENTER BASE ---*\n`;
+            docStr += `👷‍♂️ *Técnicos Base:*\n${techs}\n\n`;
+            docStr += `🗺 *Estructura de Rutas:*\n${routes}\n\n`;
+            docStr += `🏊‍♂️ *Directorio Albercas (300+):*\n${pools}\n\n`;
+            docStr += `💧 *Químicos Registrados en la App:*\n${quims}\n\n`;
+            
+            docStr += `*--- 3. INFORMACIÓN ADICIONAL ---*\n`;
+            docStr += `📝 *Notas:*\n${extraInfo}\n\n`;
+
+            if (techFile || poolFile) {
+                 docStr += `⚠️ _Nota del sistema: Enseguida arrastraré a este chat los archivos de Excel/PDF que marqué porque el portal los pre-autorizó..._\n\n`;
+            }
+
+            docStr += `📸 _También aprovecho de una vez a meter mis fotos para la VCard por aquí..._`;
+
+            // Número telefónico tuyo (Christian)
+            const MY_PHONE_NUMBER = "522282393575"; // Reemplázalo si necesitas otro
+
+            const waLink = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(docStr)}`;
+            
+            // Abriendo WA instantáneo
+            window.location.href = waLink;
+        });
+    </script>
+
+<!-- TREZE SIGNATURE -->
+<a href="https://wa.me/522214092478?text=Hola%20Treze%20Labs%2C%20me%20gustar%C3%ADa%20solicitar%20el%20desarrollo%20de%20un%20sistema%20profesional." target="_blank" style="display: flex; justify-content: center; text-decoration: none; margin-top: 24px; margin-bottom: 24px; opacity: 0.6; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+    <img src="assets/footer.png" alt="Ingeniería Digital por Treze Labs" style="max-height: 38px; object-fit: contain; filter: brightness(0);">
+</a>
+
+</body>
+</html>
